@@ -3315,6 +3315,63 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════
+     FORMAT MODAL — Exklusive Formate Buchung
+════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" onclick="closeModal()" ontouchstart="event.preventDefault();closeModal()" aria-label="Schließen">×</button>
+
+    <div class="modal-header-wrap">
+      <div class="modal-eyebrow" id="modal-eyebrow"></div>
+      <h3 id="modal-title"></h3>
+      <p class="modal-header-text">Teilen Sie uns Ihre Anfrage mit — Gloria Dauksch antwortet persönlich und diskret.</p>
+    </div>
+
+    <form id="booking-form" onsubmit="handleSubmit(event)" name="format-anfrage" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="format-anfrage">
+      <input type="hidden" id="f-format" name="format" value="">
+      <input type="hidden" id="f-subject" name="subject" value="">
+      <p aria-hidden="true" style="display:none"><label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="form-group">
+        <label class="form-label" for="f-name">Name <span style="color:var(--gold-1)">*</span></label>
+        <input class="form-input" type="text" id="f-name" name="name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-email">E-Mail <span style="color:var(--gold-1)">*</span></label>
+        <input class="form-input" type="email" id="f-email" name="email" placeholder="Geschäftliche E-Mail" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-phone">Telefon</label>
+        <input class="form-input" type="tel" id="f-phone" name="telefon" placeholder="+49 · · ·" autocomplete="tel">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-context" id="f-context-label">Ihre aktuelle Herausforderung <span style="color:var(--gold-1)">*</span></label>
+        <textarea class="form-textarea" id="f-context" name="nachricht" required></textarea>
+      </div>
+
+      <button type="submit" class="btn-form-submit">
+        <span>Anfrage verbindlich senden</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="modal-privacy">Ihre Daten werden streng vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+    </form>
+
+    <!-- success confirmation -->
+    <div class="gd-success" id="format-success" role="status" aria-live="polite">
+      <div class="gd-success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="gd-success-rule"></div>
+      <h3 class="gd-success-title">Erstgespräch &amp;<br><em>Recap</em></h3>
+      <p class="gd-success-body">Ihre Anfrage ist eingegangen. Gloria Dauksch meldet sich persönlich für das nächste Erstgespräch &amp; Recap.</p>
+      <div class="gd-success-rule"></div>
+      <button type="button" class="gd-success-btn" onclick="closeModal()">Fenster schließen</button>
+    </div>
+  </div>
+</div>
+
 <!-- SUCCESS TOAST -->
 <div class="gd-toast" id="gd-toast">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg>
@@ -3720,6 +3777,11 @@ document.querySelectorAll('.gd-overlay').forEach(overlay => {
   function closeModalOnOverlay(e) {
     if (e.target === document.getElementById('modal-overlay')) closeModal();
   }
+
+  document.getElementById('modal-overlay').addEventListener('click', closeModalOnOverlay);
+  document.getElementById('modal-overlay').addEventListener('touchstart', function(e) {
+    if (e.target === document.getElementById('modal-overlay')) { e.preventDefault(); closeModal(); }
+  }, { passive: false });
 
   var FORMAT_NAMES = {
     deepdive:   'The Strategic Deep Dive (3-Tage-Intensiv)',
