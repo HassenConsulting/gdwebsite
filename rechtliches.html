@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechtliches – Gloria Dauksch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<!--
+════════════════════════════════════════════════════════════
+  GLORIA DAUKSCH — Rechtliche Seiten
+  Impressum & Datenschutzerklärung
+
+  INTEGRATION IN BESTEHENDE SEITEN (index.html, coaching-ansatz.html, werdegang.html):
+  
+  1. Kopiere den FOOTER-HTML-Block an das Ende jeder Seite (vor </body>)
+  2. Kopiere die MODAL-OVERLAYS (#impressum-overlay, #datenschutz-overlay) ebenfalls vor </body>
+  3. Kopiere den kompletten <style>-Block in den <head> oder in die bestehende CSS-Sektion
+  4. Kopiere den <script>-Block ans Ende der Seite
+  
+  Der Footer ersetzt oder ergänzt den ggf. vorhandenen Footer-Bereich.
+════════════════════════════════════════════════════════════
+-->
+
+<style>
+  /* ══════════════════════════════════════════
+     DESIGN TOKENS — identisch mit Hauptseiten
+  ══════════════════════════════════════════ */
+  :root {
+    --gold-1: #BF953F;
+    --gold-2: #FCF6BA;
+    --gold-3: #AA771C;
+    --gold-4: #D4AF37;
+    --bg-deep: #0a0a0f;
+    --bg-mid: #111118;
+    --bg-card: #14141e;
+    --text-beige: #f0ead6;
+    --text-muted: #a09880;
+    --white: #fafafa;
+    --gradient-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+    --gradient-gold-alt: linear-gradient(90deg, #AA771C, #D4AF37, #FCF6BA, #D4AF37, #AA771C);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-beige);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Noise texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ══════════════════════════════════════════
+     DEMO-BEREICH (nur für diese Preview-Seite)
+  ══════════════════════════════════════════ */
+  .preview-hint {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .preview-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-1);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .preview-eyebrow::before,
+  .preview-eyebrow::after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gradient-gold);
+  }
+
+  .preview-hint h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 2.2rem;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .preview-hint h2 em {
+    font-style: italic;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .preview-hint p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    max-width: 42ch;
+    line-height: 1.8;
+    margin: 0 auto;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ══════════════════════════════════════════
+     FOOTER — integrierbar in alle Seiten
+  ══════════════════════════════════════════ */
+  .gd-footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 2.5rem 4rem;
+    border-top: 1px solid rgba(191,149,63,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .gd-footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 120px; height: 1px;
+    background: var(--gradient-gold);
+    opacity: 0.6;
+  }
+
+  .gd-footer-brand {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gd-footer-copy {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .gd-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .gd-footer-links a {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    position: relative;
+  }
+
+  .gd-footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gradient-gold);
+    transition: width 0.3s;
+  }
+
+  .gd-footer-links a:hover { color: var(--gold-1); }
+  .gd-footer-links a:hover::after { width: 100%; }
+
+  /* ══════════════════════════════════════════
+     LEGAL OVERLAYS
+  ══════════════════════════════════════════ */
+  .gd-legal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 9010;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    overflow-y: auto;
+  }
+
+  .gd-legal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .gd-legal-modal {
+    background: var(--bg-card);
+    border: 1px solid rgba(191,149,63,0.18);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 780px;
+    padding: 4rem;
+    position: relative;
+    margin: auto;
+    transform: translateY(24px);
+    transition: transform 0.35s ease;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(191,149,63,0.06);
+  }
+
+  .gd-legal-overlay.active .gd-legal-modal {
+    transform: translateY(0);
+  }
+
+  .gd-legal-close {
+    position: absolute;
+    top: 1.75rem; right: 1.75rem;
+    background: none;
+    border: 1px solid rgba(191,149,63,0.25);
+    border-radius: 2px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+  }
+  .gd-legal-close:hover {
+    border-color: var(--gold-1);
+    color: var(--gold-1);
+  }
+
+  .gd-legal-eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-1);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .gd-legal-eyebrow::before {
+    content: '◆';
+    font-size: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .gd-legal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .gd-legal-title em {
+    font-style: italic;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gd-legal-divider {
+    width: 60px; height: 1px;
+    background: var(--gradient-gold);
+    margin: 2rem 0;
+    opacity: 0.6;
+  }
+
+  /* ── Typography im Modal ── */
+  .gd-legal-body {
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: var(--text-beige);
+  }
+
+  .gd-legal-body h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--white);
+    margin: 2.5rem 0 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(191,149,63,0.12);
+  }
+
+  .gd-legal-body h3:first-child { margin-top: 0; }
+
+  .gd-legal-body p {
+    margin-bottom: 0.9rem;
+    color: rgba(240,234,214,0.85);
+  }
+
+  .gd-legal-body a {
+    color: var(--gold-1);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(191,149,63,0.3);
+    transition: border-color 0.3s;
+  }
+  .gd-legal-body a:hover { border-color: var(--gold-1); }
+
+  .gd-legal-body strong {
+    color: var(--text-beige);
+    font-weight: 500;
+  }
+
+  .gd-legal-body ul {
+    margin: 0.5rem 0 0.9rem 1.2rem;
+    color: rgba(240,234,214,0.85);
+  }
+  .gd-legal-body ul li { margin-bottom: 0.4rem; }
+
+  .gd-legal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(191,149,63,0.2);
+    border-radius: 2px;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-3);
+    background: rgba(191,149,63,0.04);
+  }
+  .gd-legal-badge svg { opacity: 0.7; }
+
+  /* ── Stand-Datum ── */
+  .gd-legal-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(191,149,63,0.1);
+  }
+
+  /* ── Scrollbar im Modal-Container ── */
+  .gd-legal-overlay::-webkit-scrollbar { width: 4px; }
+  .gd-legal-overlay::-webkit-scrollbar-track { background: transparent; }
+  .gd-legal-overlay::-webkit-scrollbar-thumb { background: rgba(191,149,63,0.3); border-radius: 2px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .gd-footer {
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .gd-legal-modal {
+      padding: 2.5rem 1.5rem;
+    }
+    .gd-footer-links { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PREVIEW-HINWEIS (nur auf dieser Demo-Seite)
+══════════════════════════════════════════ -->
+<div class="preview-hint">
+  <div class="preview-eyebrow">Rechtliche Seiten</div>
+  <h2>Impressum & <em>Datenschutz</em></h2>
+  <p>Die Links im Footer öffnen die jeweiligen Rechtsdokumente. Kopieren Sie Footer, Modals und Scripts in Ihre bestehenden HTML-Seiten.</p>
+</div>
+
+<!-- ══════════════════════════════════════════
+     FOOTER — In alle Seiten integrieren
+══════════════════════════════════════════ -->
+<footer class="gd-footer">
+  <span class="gd-footer-brand">Gloria Dauksch</span>
+  <span class="gd-footer-copy">© 2025 Gloria Dauksch · Alle Rechte vorbehalten</span>
+  <ul class="gd-footer-links">
+    <li><a onclick="openImpressum()">Impressum</a></li>
+    <li><a onclick="openDatenschutz()">Datenschutz</a></li>
+  </ul>
+</footer>
+
+
+<!-- ══════════════════════════════════════════
+     IMPRESSUM MODAL
+══════════════════════════════════════════ -->
+<div class="gd-legal-overlay" id="impressum-overlay" role="dialog" aria-modal="true" aria-labelledby="impressum-title">
+  <div class="gd-legal-modal">
+    <button class="gd-legal-close" onclick="closeImpressum()" aria-label="Schließen">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.3"/>
+      </svg>
+    </button>
+
+    <div class="gd-legal-eyebrow">Rechtliche Angaben</div>
+    <h2 class="gd-legal-title" id="impressum-title">Impressum</h2>
+    <div class="gd-legal-divider"></div>
+
+    <div class="gd-legal-body">
+
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>
+        <strong>Gloria Dauksch</strong><br>
+        Führungskräftecoach &amp; Strategie- und Organisationsberaterin
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        E-Mail: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a>
+      </p>
+      <p>
+        Kontaktaufnahme bevorzugt über das Kontaktformular auf dieser Website oder per E-Mail. Ein persönliches Gespräch wird nach Terminvereinbarung geführt.
+      </p>
+
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <p>Gloria Dauksch (Anschrift wie oben)</p>
+
+      <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+      <p>
+        <strong>Berufsbezeichnung:</strong> Führungskräftecoach &amp; Strategie- und Organisationsberaterin<br>
+        Die Berufsbezeichnung wurde in Deutschland erworben. Es bestehen keine spezifischen gesetzlichen Berufsregelungen für diese Tätigkeit.
+      </p>
+
+      <h3>Haftung für Inhalte</h3>
+      <p>
+        Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.
+      </p>
+      <p>
+        Nach §§ 8 bis 10 TMG besteht keine Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.
+      </p>
+
+      <h3>Haftung für Links</h3>
+      <p>
+        Diese Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte kein Einfluss besteht. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung von Gloria Dauksch. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+      </p>
+
+      <div class="gd-legal-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Konform mit § 5 TMG &amp; § 55 RStV
+      </div>
+
+      <p class="gd-legal-date">Stand: Januar 2025</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     DATENSCHUTZERKLÄRUNG MODAL
+══════════════════════════════════════════ -->
+<div class="gd-legal-overlay" id="datenschutz-overlay" role="dialog" aria-modal="true" aria-labelledby="datenschutz-title">
+  <div class="gd-legal-modal">
+    <button class="gd-legal-close" onclick="closeDatenschutz()" aria-label="Schließen">
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.3"/>
+      </svg>
+    </button>
+
+    <div class="gd-legal-eyebrow">Datenschutz &amp; Vertraulichkeit</div>
+    <h2 class="gd-legal-title" id="datenschutz-title">Datenschutz&shy;<em>erklärung</em></h2>
+    <div class="gd-legal-divider"></div>
+
+    <div class="gd-legal-body">
+
+      <h3>1. Verantwortliche Stelle</h3>
+      <p>
+        Verantwortlich im Sinne der DSGVO ist:<br>
+        <strong>Gloria Dauksch</strong><br>
+        Führungskräftecoach &amp; Strategie- und Organisationsberaterin<br>
+        E-Mail: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a>
+      </p>
+
+      <h3>2. Grundsätze der Datenverarbeitung</h3>
+      <p>
+        Der Schutz Ihrer persönlichen Daten hat für mich höchste Priorität. Im Coaching-Kontext gilt absolute Vertraulichkeit: Alle Informationen, die Sie mir im Rahmen einer Zusammenarbeit anvertrauen – ob schriftlich, mündlich oder digital – werden streng vertraulich behandelt und niemals ohne Ihre ausdrückliche Zustimmung an Dritte weitergegeben.
+      </p>
+      <p>
+        Ich verarbeite personenbezogene Daten ausschließlich im Einklang mit der Datenschutz-Grundverordnung (DSGVO), dem Bundesdatenschutzgesetz (BDSG) und den einschlägigen datenschutzrechtlichen Bestimmungen.
+      </p>
+
+      <h3>3. Erhebung und Verarbeitung personenbezogener Daten</h3>
+
+      <p><strong>3.1 Kontaktformular &amp; allgemeine Anfragen</strong><br>
+      Wenn Sie das Kontaktformular auf dieser Website nutzen, erhebe und speichere ich folgende Daten:</p>
+      <ul>
+        <li>Name (Vor- und Nachname)</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer (optional, soweit angegeben)</li>
+        <li>Inhalt Ihrer Nachricht</li>
+        <li>Datum und Uhrzeit der Anfrage</li>
+      </ul>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung Ihrer Anfrage).<br>
+        <strong>Zweck:</strong> Bearbeitung und Beantwortung Ihrer Anfrage, Vorbereitung eines Erstgesprächs.<br>
+        <strong>Speicherdauer:</strong> Ihre Daten werden gelöscht, sobald die Anfrage vollständig bearbeitet ist und kein weiteres Interesse an einer Zusammenarbeit besteht, spätestens jedoch nach 6 Monaten, sofern keine vertragliche Beziehung entsteht.
+      </p>
+
+      <p><strong>3.2 Terminbuchung</strong><br>
+      Im Rahmen der Terminbuchung für ein Erstgespräch verarbeite ich:</p>
+      <ul>
+        <li>Name (Vor- und Nachname)</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer</li>
+        <li>Gewünschtes Datum und Uhrzeit</li>
+        <li>Angaben zum Gesprächsthema (optional)</li>
+      </ul>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).<br>
+        <strong>Zweck:</strong> Koordination und Bestätigung des Termins, Vorbereitung des Erstgesprächs.<br>
+        <strong>Speicherdauer:</strong> Terminbezogene Daten werden nach Ablauf des Gesprächs gelöscht, sofern kein Vertragsverhältnis entsteht.
+      </p>
+
+      <p><strong>3.3 Coaching-Vertragsverhältnis</strong><br>
+      Bei Beginn einer Coaching-Zusammenarbeit verarbeite ich darüber hinaus Daten, die zur Vertragserfüllung notwendig sind (z. B. Rechnungsadresse, Gesprächsnotizen). Diese Daten unterliegen der strengsten Vertraulichkeit und werden ausschließlich zur Durchführung der vereinbarten Leistung verwendet.</p>
+      <p>
+        <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung), Art. 6 Abs. 1 lit. c DSGVO (gesetzliche Aufbewahrungspflichten).<br>
+        <strong>Speicherdauer:</strong> Entsprechend den gesetzlichen Aufbewahrungsfristen (i. d. R. 10 Jahre für steuerrelevante Dokumente gemäß § 147 AO).
+      </p>
+
+      <h3>4. LinkedIn</h3>
+      <p>
+        Diese Website verlinkt auf mein Profil auf LinkedIn (LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland). Wenn Sie auf den LinkedIn-Link klicken, werden Sie zu einem externen Dienst weitergeleitet, der eigenen Datenschutzbestimmungen unterliegt. LinkedIn kann beim Aufruf Ihrer Profilseite oder Interaktionen Nutzerdaten erheben und verarbeiten.
+      </p>
+      <p>
+        Rechtsgrundlage für die Verlinkung: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an professioneller Präsenz und Vernetzung). Für die Datenverarbeitung durch LinkedIn ist ausschließlich LinkedIn verantwortlich. Die Datenschutzrichtlinie von LinkedIn finden Sie unter: <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">linkedin.com/legal/privacy-policy</a>
+      </p>
+
+      <h3>5. Analyse-Tools und Tracking</h3>
+      <p>
+        Diese Website verwendet <strong>keine</strong> Analyse-Tools, Tracking-Software (z. B. Google Analytics, Matomo) oder Cookies zu Marketingzwecken. Es werden keine Verhaltensprofile erstellt. Eingehende Serverprotokolle (IP-Adresse, Zeitstempel, abgerufene Seite) werden ausschließlich aus technischen und sicherheitsrelevanten Gründen für maximal 7 Tage gespeichert.
+      </p>
+
+      <h3>6. Datensicherheit</h3>
+      <p>
+        Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL/TLS-Verschlüsselung. Ich treffe technische und organisatorische Maßnahmen, um Ihre Daten gegen zufällige oder vorsätzliche Manipulation, Verlust, Zerstörung oder gegen den Zugriff unberechtigter Personen zu schützen.
+      </p>
+
+      <h3>7. Weitergabe von Daten an Dritte</h3>
+      <p>
+        Ihre personenbezogenen Daten werden grundsätzlich nicht an Dritte verkauft, vermietet oder verliehen. Eine Weitergabe erfolgt ausschließlich:
+      </p>
+      <ul>
+        <li>mit Ihrer ausdrücklichen Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</li>
+        <li>wenn dies zur Vertragserfüllung notwendig ist (Art. 6 Abs. 1 lit. b DSGVO)</li>
+        <li>wenn eine gesetzliche Verpflichtung zur Weitergabe besteht (Art. 6 Abs. 1 lit. c DSGVO)</li>
+      </ul>
+
+      <h3>8. Ihre Rechte als betroffene Person</h3>
+      <p>Sie haben gegenüber mir folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+      <ul>
+        <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+        <li><strong>Recht auf Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+        <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+        <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+        <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+        <li><strong>Widerspruchsrecht</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        <li><strong>Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+      </ul>
+      <p>
+        Zur Geltendmachung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a>
+      </p>
+      <p>
+        Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Die zuständige Behörde richtet sich nach Ihrem Wohnsitz oder Arbeitsort.
+      </p>
+
+      <h3>9. Vertraulichkeit im Coaching-Kontext</h3>
+      <p>
+        Alle im Rahmen einer Coaching-Beziehung gewonnenen Informationen – Ihre persönliche Situation, strategische Überlegungen, unternehmerische Herausforderungen sowie vertrauliche Inhalte aus Gesprächen – unterliegen einer strengen beruflichen Schweigepflicht. Diese geht über die gesetzlichen Datenschutzanforderungen hinaus und ist Ausdruck meines Professionsverständnisses als Coach und Beraterin.
+      </p>
+      <p>
+        Coaching-Inhalte, Sitzungsnotizen und vertrauliche Informationen werden niemals für Marketingzwecke, Fallbeispiele oder öffentliche Kommunikation verwendet, es sei denn, Sie erteilen hierfür ausdrücklich und schriftlich Ihr Einverständnis.
+      </p>
+
+      <div class="gd-legal-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DSGVO-konform · Keine Analyse-Tools · Absolute Vertraulichkeit
+      </div>
+
+      <p class="gd-legal-date">Stand: Januar 2025 · Bei Fragen zum Datenschutz: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     SCRIPTS — In alle Seiten integrieren
+══════════════════════════════════════════ -->
+<script>
+  /* ── Impressum ── */
+  function openImpressum() {
+    document.getElementById('impressum-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImpressum() {
+    document.getElementById('impressum-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('impressum-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeImpressum();
+  });
+
+  /* ── Datenschutz ── */
+  function openDatenschutz() {
+    document.getElementById('datenschutz-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDatenschutz() {
+    document.getElementById('datenschutz-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('datenschutz-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeDatenschutz();
+  });
+
+  /* ── ESC schließt alle Modals ── */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      closeImpressum();
+      closeDatenschutz();
+    }
+  });
+</script>
+
+</body>
+</html>
