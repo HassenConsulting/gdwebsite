@@ -228,6 +228,8 @@
     transition: all 0.3s;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.8s forwards;
     position: relative;
@@ -3243,7 +3245,7 @@
     <div class="section-label reveal" style="justify-content:center"><span>Eine exklusive Möglichkeit</span></div>
     <h2 class="reveal">Lassen Sie uns <em>gemeinsam gestalten.</em></h2>
     <p class="reveal reveal-delay-1" style="color:var(--text-muted);font-size:.95rem;line-height:1.7;margin-bottom:2.5rem;">Der Weg zur fundamentalen Transformation beginnt mit einem Gespräch. Sichern Sie Ihr diskretes Erstgespräch mit Gloria Dauksch.</p>
-    <button onclick="openBookingModal()" class="btn-primary reveal reveal-delay-2">
+    <button onclick="openBookingModal()" ontouchstart="openBookingModal()" class="btn-primary reveal reveal-delay-2">
       <span>Exklusives Erstgespräch sichern</span><span>→</span>
     </button>
   </div>

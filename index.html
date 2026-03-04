@@ -228,6 +228,8 @@
     transition: all 0.3s;
     border: none;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     opacity: 0;
     animation: fadeUp 0.8s ease 0.8s forwards;
     position: relative;
@@ -1102,6 +1104,8 @@
     letter-spacing: 0.18em;
     text-transform: uppercase;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
     transition: all 0.35s ease;
     border-radius: 1px;
   }
@@ -2961,7 +2965,7 @@
     <h1>Führungskunst auf höchstem<br><em>psychologischen Niveau.</em></h1>
     <p class="hero-sub">Fundamentale Transformation für Organisationen und Menschen, die echte Exzellenz fordern. 
  Gloria Dauksch vereint psychologische Meisterschaft mit jahrelanger Führungspraxis — als strategische Partnerin für das, was andere für unmöglich halten.</p>
-    <button onclick="openBookingModal()" class="btn-primary">
+    <button onclick="openBookingModal()" ontouchstart="openBookingModal()" class="btn-primary">
       <span>Exklusive Zusammenarbeit anfragen</span>
       <span class="hero-arrow">→</span>
     </button>
@@ -3115,7 +3119,7 @@
     </div>
     <h2 class="reveal">Sichern Sie sich Ihren<br><em>Strategietermin.</em></h2>
     <p class="reveal reveal-delay-1">Profilierte Expertise ist selten — und die Zeit von Gloria Dauksch ist limitiert. Wenn Sie bereit sind, Ihre Organisation oder Ihre Führungspräsenz auf ein Niveau zu heben, das Sie bisher für unerreichbar hielten, dann ist jetzt der Moment. Sichern Sie Ihr exklusives Erstgespräch.</p>
-    <button onclick="openBookingModal()" class="btn-primary reveal reveal-delay-2">
+    <button onclick="openBookingModal()" ontouchstart="openBookingModal()" class="btn-primary reveal reveal-delay-2">
       <span>Exklusives Erstgespräch sichern</span>
       <span>→</span>
     </button>
@@ -3371,7 +3375,8 @@
     initCalendar();
   }
 
-  document.getElementById('booking-overlay').addEventListener('click', function(e) {
+  var _bOv = document.getElementById('booking-overlay');
+  if (_bOv) _bOv.addEventListener('click', function(e) {
     if (e.target === this) closeBookingModal();
   });
 
@@ -3413,7 +3418,8 @@
     if (cBtn) { cBtn.disabled = false; var sp = cBtn.querySelector('span'); if (sp) sp.textContent = 'Anfrage diskret \u00fcbermitteln'; }
   }
 
-  document.getElementById('contact-overlay').addEventListener('click', function(e) {
+  var _cOv = document.getElementById('contact-overlay');
+  if (_cOv) _cOv.addEventListener('click', function(e) {
     if (e.target === this) closeContactModal();
   });
 
