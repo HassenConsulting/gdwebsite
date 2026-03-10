@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Datenschutzerklärung – Gloria Dauksch. DSGVO-konform, keine Analyse-Tools, absolute Vertraulichkeit.">
+<title>Datenschutz – Gloria Dauksch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-1: #BF953F;
+    --gold-2: #FCF6BA;
+    --gold-3: #AA771C;
+    --bg-deep: #0a0a0f;
+    --text-beige: #f0ead6;
+    --text-muted: #a09880;
+    --white: #fafafa;
+    --gradient-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg-deep); color: var(--text-beige); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+
+  /* ─── NAV ─── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(10,10,15,0.95) 0%, transparent 100%); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(191,149,63,0.1); transition: all 0.4s ease; }
+  nav.scrolled { background: rgba(10,10,15,0.97); padding: 1rem 4rem; }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 1.1rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-menu { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-menu a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; position: relative; }
+  .nav-menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gradient-gold); transition: width 0.3s; }
+  .nav-menu a:hover { color: var(--gold-1); }
+  .nav-menu a:hover::after { width: 100%; }
+  .nav-cta { padding: 0.5rem 1.4rem; border: 1px solid rgba(191,149,63,0.4); border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-1) !important; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold-1); color: var(--bg-deep) !important; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 2.5rem; height: 2.5rem; background: none; border: 1px solid rgba(191,149,63,0.25); cursor: pointer; padding: 0.5rem; border-radius: 1px; transition: border-color 0.3s; flex-shrink: 0; }
+  .nav-hamburger:hover { border-color: rgba(191,149,63,0.6); }
+  .nav-hamburger span { display: block; width: 100%; height: 1px; background: var(--gold-1); transition: all 0.35s cubic-bezier(0.16,1,0.3,1); transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,10,0.6); backdrop-filter: blur(4px); z-index: 98; opacity: 0; transition: opacity 0.3s; }
+  .nav-overlay.active { opacity: 1; }
+
+  /* ─── FOOTER ─── */
+  footer { padding: 3rem 8rem; border-top: 1px solid rgba(191,149,63,0.1); display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 0.9rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; touch-action: manipulation; }
+  .footer-links a:hover { color: var(--gold-1); }
+  .footer-copy { font-size: 0.65rem; color: rgba(160,152,128,0.5); letter-spacing: 0.05em; }
+  button, a { touch-action: manipulation; cursor: pointer; }
+
+  /* ─── PAGE ─── */
+  .page-main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 8rem 1.5rem 4rem; }
+  .page-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; margin-bottom: 2rem; align-self: flex-start; max-width: 720px; width: 100%; }
+  .page-back:hover { color: var(--gold-1); }
+  .page-back svg { transition: transform 0.3s; }
+  .page-back:hover svg { transform: translateX(-3px); }
+
+  /* ─── LEGAL CARD ─── */
+  .legal-card { width: 100%; max-width: 720px; background: linear-gradient(160deg, #0e0e18 0%, #12121e 100%); border: 1px solid rgba(191,149,63,0.2); padding: 3rem; position: relative; }
+  .legal-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #AA771C, #FCF6BA, #BF953F, #FCF6BA, #AA771C); background-size: 200% auto; animation: shimmer 4s linear infinite; }
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .legal-eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-1); opacity: 0.8; margin-bottom: 0.75rem; }
+  .legal-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--white); line-height: 1.15; margin-bottom: 0.5rem; }
+  .legal-divider { width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-1), transparent); opacity: 0.45; margin: 1.5rem 0; }
+  .legal-body { font-size: 0.86rem; line-height: 1.85; color: var(--text-muted); }
+  .legal-body h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.05rem; color: var(--text-beige); margin-top: 2rem; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .legal-body h3:first-child { margin-top: 0; }
+  .legal-body p { margin-bottom: 0.85rem; color: rgba(240,234,214,0.82); }
+  .legal-body a { color: var(--gold-1); text-decoration: none; border-bottom: 1px solid rgba(191,149,63,0.28); transition: border-color 0.3s; }
+  .legal-body a:hover { border-color: var(--gold-1); }
+  .legal-body strong { color: var(--text-beige); font-weight: 500; }
+  .legal-body ul { margin: 0.4rem 0 0.85rem 1.15rem; color: rgba(240,234,214,0.82); }
+  .legal-body ul li { margin-bottom: 0.35rem; }
+  .legal-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-1); opacity: 0.6; margin-top: 1.5rem; }
+  .legal-badge svg { opacity: 0.65; }
+  .legal-date { font-size: 0.72rem; color: rgba(160,152,128,0.5); margin-top: 0.5rem; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) { nav { padding: 1.25rem 3rem; } footer { padding: 2.5rem 3rem; } }
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-overlay { display: block; }
+    nav { padding: 1.1rem 1.25rem; }
+    nav.scrolled { padding: 0.85rem 1.25rem; }
+    .nav-menu { display: flex; position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh; background: #0d0d15; border-left: 1px solid rgba(191,149,63,0.15); flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; padding: 5rem 2.5rem 3rem; z-index: 99; transform: translateX(100%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); list-style: none; }
+    .nav-menu.open { transform: translateX(0); }
+    .nav-menu li { width: 100%; border-bottom: 1px solid rgba(191,149,63,0.07); }
+    .nav-menu a { display: block; padding: 1.1rem 0; font-size: 0.85rem; letter-spacing: 0.2em; }
+    .nav-menu .nav-cta { display: inline-flex; margin-top: 2rem; padding: 0.75rem 1.5rem; border: 1px solid var(--gold-1); }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.25rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .page-main { padding: 7rem 1rem 3rem; }
+    .page-back { max-width: 100%; }
+    .legal-card { padding: 2rem 1.25rem; }
+  }
+  @media (max-width: 390px) { nav { padding: 1rem; } .page-main { padding: 6.5rem 0.75rem 2.5rem; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html#expertise" onclick="closeMenu()">Meine Expertise</a></li>
+    <li><a href="coaching-ansatz.html" onclick="closeMenu()">Exklusive Formate</a></li>
+    <li><a href="werdegang.html" onclick="closeMenu()">Werdegang</a></li>
+    <li><a href="kontakt.html" class="nav-cta" onclick="closeMenu()">Kontakt</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<main class="page-main">
+  <a href="javascript:history.back()" class="page-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Zurück
+  </a>
+
+  <div class="legal-card">
+    <div class="legal-eyebrow">Datenschutz &amp; Vertraulichkeit</div>
+    <h1 class="legal-title">Datenschutz&shy;erklärung</h1>
+    <div class="legal-divider"></div>
+    <div class="legal-body">
+      <h3>1. Verantwortliche Stelle</h3>
+      <p><strong>Gloria Dauksch</strong><br>Führungskräftecoach &amp; Strategie- und Organisationsberaterin<br>E-Mail: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a></p>
+      <h3>2. Grundsätze der Datenverarbeitung</h3>
+      <p>Der Schutz Ihrer persönlichen Daten hat für mich höchste Priorität. Im Coaching-Kontext gilt absolute Vertraulichkeit: Alle Informationen, die Sie mir anvertrauen – ob schriftlich, mündlich oder digital – werden streng vertraulich behandelt und niemals ohne Ihre ausdrückliche Zustimmung an Dritte weitergegeben.</p>
+      <p>Ich verarbeite personenbezogene Daten ausschließlich im Einklang mit der Datenschutz-Grundverordnung (DSGVO), dem Bundesdatenschutzgesetz (BDSG) und den einschlägigen datenschutzrechtlichen Bestimmungen.</p>
+      <h3>3. Erhebung und Verarbeitung personenbezogener Daten</h3>
+      <p><strong>3.1 Kontaktformular &amp; allgemeine Anfragen</strong><br>Wenn Sie das Kontaktformular auf dieser Website nutzen, erhebe ich folgende Daten:</p>
+      <ul>
+        <li>Name (Vor- und Nachname)</li>
+        <li>E-Mail-Adresse</li>
+        <li>Telefonnummer</li>
+        <li>Inhalt Ihrer Nachricht</li>
+        <li>Datum und Uhrzeit der Anfrage</li>
+      </ul>
+      <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) sowie Art. 6 Abs. 1 lit. f DSGVO.<br><strong>Speicherdauer:</strong> Ihre Daten werden gelöscht, sobald die Anfrage vollständig bearbeitet ist, spätestens nach 6 Monaten, sofern keine vertragliche Beziehung entsteht.</p>
+      <p><strong>3.2 Terminbuchung</strong><br>Im Rahmen der Terminbuchung verarbeite ich: Name, E-Mail, Telefonnummer, Wunschtermin und optionale Angaben zum Gesprächsthema.<br><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).<br><strong>Speicherdauer:</strong> Terminbezogene Daten werden nach Ablauf des Gesprächs gelöscht, sofern kein Vertragsverhältnis entsteht.</p>
+      <p><strong>3.3 Coaching-Vertragsverhältnis</strong><br>Bei Beginn einer Coaching-Zusammenarbeit verarbeite ich Daten, die zur Vertragserfüllung notwendig sind. Diese unterliegen der strengsten Vertraulichkeit.<br><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b und lit. c DSGVO.<br><strong>Speicherdauer:</strong> Entsprechend den gesetzlichen Aufbewahrungsfristen (i.d.R. 10 Jahre gemäß § 147 AO).</p>
+      <h3>4. LinkedIn</h3>
+      <p>Diese Website verlinkt auf mein Profil auf LinkedIn (LinkedIn Ireland Unlimited Company, Wilton Place, Dublin 2, Irland). Wenn Sie auf den LinkedIn-Link klicken, werden Sie zu einem externen Dienst weitergeleitet, der eigenen Datenschutzbestimmungen unterliegt. Für die Datenverarbeitung durch LinkedIn ist ausschließlich LinkedIn verantwortlich: <a href="https://www.linkedin.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">linkedin.com/legal/privacy-policy</a></p>
+      <h3>5. Analyse-Tools und Tracking</h3>
+      <p>Diese Website verwendet <strong>keine</strong> Analyse-Tools, Tracking-Software oder Cookies zu Marketingzwecken. Es werden keine Verhaltensprofile erstellt. Serverprotokolle werden ausschließlich aus technischen Gründen für maximal 7 Tage gespeichert.</p>
+      <h3>6. Datensicherheit</h3>
+      <p>Diese Website nutzt SSL/TLS-Verschlüsselung. Ich treffe technische und organisatorische Maßnahmen, um Ihre Daten gegen Manipulation, Verlust, Zerstörung oder unberechtigten Zugriff zu schützen.</p>
+      <h3>7. Weitergabe von Daten an Dritte</h3>
+      <p>Ihre personenbezogenen Daten werden nicht verkauft, vermietet oder verliehen. Eine Weitergabe erfolgt ausschließlich mit Ihrer Einwilligung (Art. 6 Abs. 1 lit. a), zur Vertragserfüllung (lit. b) oder bei gesetzlicher Verpflichtung (lit. c DSGVO).</p>
+      <h3>8. Ihre Rechte als betroffene Person</h3>
+      <p>Sie haben folgende Rechte hinsichtlich Ihrer personenbezogenen Daten:</p>
+      <ul>
+        <li><strong>Auskunftsrecht</strong> (Art. 15 DSGVO)</li>
+        <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+        <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+        <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+        <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+        <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
+        <li><strong>Recht auf Widerruf</strong> einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+      </ul>
+      <p>Zur Geltendmachung Ihrer Rechte: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a></p>
+      <p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</p>
+      <h3>9. Vertraulichkeit im Coaching-Kontext</h3>
+      <p>Alle im Rahmen einer Coaching-Beziehung gewonnenen Informationen – Ihre persönliche Situation, strategische Überlegungen, unternehmerische Herausforderungen sowie vertrauliche Inhalte aus Gesprächen – unterliegen einer strengen beruflichen Schweigepflicht. Diese geht über die gesetzlichen Datenschutzanforderungen hinaus und ist Ausdruck meines Professionsverständnisses als Coach und Beraterin.</p>
+      <p>Coaching-Inhalte, Sitzungsnotizen und vertrauliche Informationen werden niemals für Marketingzwecke oder öffentliche Kommunikation verwendet, es sei denn, Sie erteilen hierfür ausdrücklich und schriftlich Ihr Einverständnis.</p>
+      <div class="legal-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        DSGVO-konform · Keine Analyse-Tools · Absolute Vertraulichkeit
+      </div>
+      <p class="legal-date">Stand: Januar 2025 · Fragen zum Datenschutz: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="footer-links">
+    <li><a href="impressum.html">Impressum</a></li>
+    <li><a href="datenschutz.html">Datenschutz</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Gloria Dauksch. Alle Rechte vorbehalten.</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    var open = menu.classList.contains('open');
+    menu.classList.toggle('open', !open);
+    btn.classList.toggle('open',  !open);
+    ov.classList.toggle('active', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+    btn.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
+  }
+  function closeMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    ov.classList.remove('active');
+    document.body.style.overflow = '';
+    if (btn) btn.setAttribute('aria-label', 'Menü öffnen');
+  }
+  window.addEventListener('resize', function() { if (window.innerWidth > 768) closeMenu(); });
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+</script>
+</body>
+</html>

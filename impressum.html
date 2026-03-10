@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Impressum – Gloria Dauksch, Führungskräftecoach & Strategie- und Organisationsberaterin.">
+<title>Impressum – Gloria Dauksch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-1: #BF953F;
+    --gold-2: #FCF6BA;
+    --gold-3: #AA771C;
+    --bg-deep: #0a0a0f;
+    --text-beige: #f0ead6;
+    --text-muted: #a09880;
+    --white: #fafafa;
+    --gradient-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg-deep); color: var(--text-beige); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+
+  /* ─── NAV ─── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(10,10,15,0.95) 0%, transparent 100%); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(191,149,63,0.1); transition: all 0.4s ease; }
+  nav.scrolled { background: rgba(10,10,15,0.97); padding: 1rem 4rem; }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 1.1rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-menu { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-menu a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; position: relative; }
+  .nav-menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gradient-gold); transition: width 0.3s; }
+  .nav-menu a:hover { color: var(--gold-1); }
+  .nav-menu a:hover::after { width: 100%; }
+  .nav-cta { padding: 0.5rem 1.4rem; border: 1px solid rgba(191,149,63,0.4); border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-1) !important; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold-1); color: var(--bg-deep) !important; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 2.5rem; height: 2.5rem; background: none; border: 1px solid rgba(191,149,63,0.25); cursor: pointer; padding: 0.5rem; border-radius: 1px; transition: border-color 0.3s; flex-shrink: 0; }
+  .nav-hamburger:hover { border-color: rgba(191,149,63,0.6); }
+  .nav-hamburger span { display: block; width: 100%; height: 1px; background: var(--gold-1); transition: all 0.35s cubic-bezier(0.16,1,0.3,1); transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,10,0.6); backdrop-filter: blur(4px); z-index: 98; opacity: 0; transition: opacity 0.3s; }
+  .nav-overlay.active { opacity: 1; }
+
+  /* ─── FOOTER ─── */
+  footer { padding: 3rem 8rem; border-top: 1px solid rgba(191,149,63,0.1); display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 0.9rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; touch-action: manipulation; }
+  .footer-links a:hover { color: var(--gold-1); }
+  .footer-copy { font-size: 0.65rem; color: rgba(160,152,128,0.5); letter-spacing: 0.05em; }
+  button, a { touch-action: manipulation; cursor: pointer; }
+
+  /* ─── PAGE ─── */
+  .page-main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 8rem 1.5rem 4rem; }
+  .page-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; margin-bottom: 2rem; align-self: flex-start; max-width: 720px; width: 100%; }
+  .page-back:hover { color: var(--gold-1); }
+  .page-back svg { transition: transform 0.3s; }
+  .page-back:hover svg { transform: translateX(-3px); }
+
+  /* ─── LEGAL CARD ─── */
+  .legal-card { width: 100%; max-width: 720px; background: linear-gradient(160deg, #0e0e18 0%, #12121e 100%); border: 1px solid rgba(191,149,63,0.2); padding: 3rem; position: relative; }
+  .legal-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #AA771C, #FCF6BA, #BF953F, #FCF6BA, #AA771C); background-size: 200% auto; animation: shimmer 4s linear infinite; }
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  .legal-eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-1); opacity: 0.8; margin-bottom: 0.75rem; }
+  .legal-title { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.8rem, 4vw, 2.5rem); color: var(--white); line-height: 1.15; margin-bottom: 0.5rem; }
+  .legal-divider { width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-1), transparent); opacity: 0.45; margin: 1.5rem 0; }
+  .legal-body { font-size: 0.86rem; line-height: 1.85; color: var(--text-muted); }
+  .legal-body h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.05rem; color: var(--text-beige); margin-top: 2rem; margin-bottom: 0.5rem; letter-spacing: 0.02em; }
+  .legal-body h3:first-child { margin-top: 0; }
+  .legal-body p { margin-bottom: 0.85rem; color: rgba(240,234,214,0.82); }
+  .legal-body a { color: var(--gold-1); text-decoration: none; border-bottom: 1px solid rgba(191,149,63,0.28); transition: border-color 0.3s; }
+  .legal-body a:hover { border-color: var(--gold-1); }
+  .legal-body strong { color: var(--text-beige); font-weight: 500; }
+  .legal-body ul { margin: 0.4rem 0 0.85rem 1.15rem; color: rgba(240,234,214,0.82); }
+  .legal-body ul li { margin-bottom: 0.35rem; }
+  .legal-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-1); opacity: 0.6; margin-top: 1.5rem; }
+  .legal-badge svg { opacity: 0.65; }
+  .legal-date { font-size: 0.72rem; color: rgba(160,152,128,0.5); margin-top: 0.5rem; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) { nav { padding: 1.25rem 3rem; } footer { padding: 2.5rem 3rem; } }
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-overlay { display: block; }
+    nav { padding: 1.1rem 1.25rem; }
+    nav.scrolled { padding: 0.85rem 1.25rem; }
+    .nav-menu { display: flex; position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh; background: #0d0d15; border-left: 1px solid rgba(191,149,63,0.15); flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; padding: 5rem 2.5rem 3rem; z-index: 99; transform: translateX(100%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); list-style: none; }
+    .nav-menu.open { transform: translateX(0); }
+    .nav-menu li { width: 100%; border-bottom: 1px solid rgba(191,149,63,0.07); }
+    .nav-menu a { display: block; padding: 1.1rem 0; font-size: 0.85rem; letter-spacing: 0.2em; }
+    .nav-menu .nav-cta { display: inline-flex; margin-top: 2rem; padding: 0.75rem 1.5rem; border: 1px solid var(--gold-1); }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.25rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .page-main { padding: 7rem 1rem 3rem; }
+    .page-back { max-width: 100%; }
+    .legal-card { padding: 2rem 1.25rem; }
+  }
+  @media (max-width: 390px) { nav { padding: 1rem; } .page-main { padding: 6.5rem 0.75rem 2.5rem; } }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html#expertise" onclick="closeMenu()">Meine Expertise</a></li>
+    <li><a href="coaching-ansatz.html" onclick="closeMenu()">Exklusive Formate</a></li>
+    <li><a href="werdegang.html" onclick="closeMenu()">Werdegang</a></li>
+    <li><a href="kontakt.html" class="nav-cta" onclick="closeMenu()">Kontakt</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<main class="page-main">
+  <a href="javascript:history.back()" class="page-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Zurück
+  </a>
+
+  <div class="legal-card">
+    <div class="legal-eyebrow">Rechtliche Angaben</div>
+    <h1 class="legal-title">Impressum</h1>
+    <div class="legal-divider"></div>
+    <div class="legal-body">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p><strong>Gloria Dauksch</strong><br>Führungskräftecoach &amp; Strategie- und Organisationsberaterin</p>
+      <h3>Kontakt</h3>
+      <p>E-Mail: <a href="mailto:gloria.dauksch@gmail.com">gloria.dauksch@gmail.com</a></p>
+      <p>Kontaktaufnahme bevorzugt über das Kontaktformular auf dieser Website oder per E-Mail. Ein persönliches Gespräch wird nach Terminvereinbarung geführt.</p>
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <p>Gloria Dauksch (Anschrift wie oben)</p>
+      <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+      <p><strong>Berufsbezeichnung:</strong> Führungskräftecoach &amp; Strategie- und Organisationsberaterin<br>Die Berufsbezeichnung wurde in Deutschland erworben. Es bestehen keine spezifischen gesetzlichen Berufsregelungen für diese Tätigkeit.</p>
+      <h3>Haftung für Inhalte</h3>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann jedoch keine Gewähr übernommen werden. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      <p>Nach §§ 8 bis 10 TMG besteht keine Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.</p>
+      <h3>Haftung für Links</h3>
+      <p>Diese Website enthält Links zu externen Webseiten Dritter, auf deren Inhalte kein Einfluss besteht. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+      <h3>Urheberrecht</h3>
+      <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung von Gloria Dauksch. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+      <div class="legal-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Konform mit § 5 TMG &amp; § 55 RStV
+      </div>
+      <p class="legal-date">Stand: Januar 2025</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="footer-links">
+    <li><a href="impressum.html">Impressum</a></li>
+    <li><a href="datenschutz.html">Datenschutz</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Gloria Dauksch. Alle Rechte vorbehalten.</div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    var open = menu.classList.contains('open');
+    menu.classList.toggle('open', !open);
+    btn.classList.toggle('open',  !open);
+    ov.classList.toggle('active', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+    btn.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
+  }
+  function closeMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    ov.classList.remove('active');
+    document.body.style.overflow = '';
+    if (btn) btn.setAttribute('aria-label', 'Menü öffnen');
+  }
+  window.addEventListener('resize', function() { if (window.innerWidth > 768) closeMenu(); });
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+</script>
+</body>
+</html>

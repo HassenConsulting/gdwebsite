@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Exklusives Erstgespräch mit Gloria Dauksch sichern. Diskret, vertraulich, auf Augenhöhe.">
+<title>Termin sichern – Gloria Dauksch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold-1: #BF953F;
+    --gold-2: #FCF6BA;
+    --gold-3: #AA771C;
+    --gold-4: #D4AF37;
+    --bg-deep: #0a0a0f;
+    --bg-mid: #111118;
+    --bg-card: #14141e;
+    --text-beige: #f0ead6;
+    --text-muted: #a09880;
+    --white: #fafafa;
+    --gradient-gold: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #AA771C 100%);
+    --gradient-gold-alt: linear-gradient(90deg, #AA771C, #D4AF37, #FCF6BA, #D4AF37, #AA771C);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg-deep); color: var(--text-beige); font-family: 'Outfit', sans-serif; font-weight: 300; overflow-x: hidden; }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000; opacity: 0.4;
+  }
+
+  /* ─── NAV ─── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem 4rem; display: flex; align-items: center; justify-content: space-between; background: linear-gradient(to bottom, rgba(10,10,15,0.95) 0%, transparent 100%); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(191,149,63,0.1); transition: all 0.4s ease; }
+  nav.scrolled { background: rgba(10,10,15,0.97); padding: 1rem 4rem; }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 1.1rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .nav-menu { display: flex; align-items: center; gap: 2.5rem; list-style: none; }
+  .nav-menu a { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; position: relative; }
+  .nav-menu a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gradient-gold); transition: width 0.3s; }
+  .nav-menu a:hover { color: var(--gold-1); }
+  .nav-menu a:hover::after { width: 100%; }
+  .nav-cta { padding: 0.5rem 1.4rem; border: 1px solid rgba(191,149,63,0.4); border-radius: 2px; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-1) !important; text-decoration: none; transition: all 0.3s; }
+  .nav-cta:hover { background: var(--gold-1); color: var(--bg-deep) !important; }
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 2.5rem; height: 2.5rem; background: none; border: 1px solid rgba(191,149,63,0.25); cursor: pointer; padding: 0.5rem; border-radius: 1px; transition: border-color 0.3s; flex-shrink: 0; }
+  .nav-hamburger:hover { border-color: rgba(191,149,63,0.6); }
+  .nav-hamburger span { display: block; width: 100%; height: 1px; background: var(--gold-1); transition: all 0.35s cubic-bezier(0.16,1,0.3,1); transform-origin: center; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+  .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(5,5,10,0.6); backdrop-filter: blur(4px); z-index: 98; opacity: 0; transition: opacity 0.3s; }
+  .nav-overlay.active { opacity: 1; }
+
+  /* ─── FOOTER ─── */
+  footer { padding: 3rem 8rem; border-top: 1px solid rgba(191,149,63,0.1); display: flex; justify-content: space-between; align-items: center; }
+  .footer-logo { font-family: 'Outfit', sans-serif; font-weight: 200; font-size: 0.9rem; letter-spacing: 0.3em; text-transform: uppercase; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold-1); }
+  .footer-copy { font-size: 0.65rem; color: rgba(160,152,128,0.5); letter-spacing: 0.05em; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+  @keyframes gdRise { from { transform: scale(.6) translateY(10px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+
+  /* ─── PAGE LAYOUT ─── */
+  .page-main { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 8rem 1.5rem 4rem; }
+  .page-back { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.3s; margin-bottom: 2rem; align-self: flex-start; max-width: 660px; width: 100%; }
+  .page-back:hover { color: var(--gold-1); }
+  .page-back svg { transition: transform 0.3s; }
+  .page-back:hover svg { transform: translateX(-3px); }
+
+  /* ─── CARD ─── */
+  .page-card { background: linear-gradient(160deg, #0e0e18 0%, #12121e 100%); border: 1px solid rgba(191,149,63,0.2); width: 100%; max-width: 660px; position: relative; overflow: hidden; }
+  .page-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #AA771C, #FCF6BA, #BF953F, #FCF6BA, #AA771C); background-size: 200% auto; animation: shimmer 4s linear infinite; }
+
+  /* ─── FORM HEADER ─── */
+  .gd-modal-eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-1); opacity: 0.8; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.6rem; }
+  .gd-eyebrow-dot { font-size: 0.45rem; opacity: 0.6; }
+  .page-card-header { padding: 2.5rem 2.5rem 1.75rem; border-bottom: 1px solid rgba(191,149,63,0.1); margin-bottom: 1.75rem; }
+  .page-card-header h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
+  .page-card-header h1 em { font-style: italic; background: var(--gradient-gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .page-card-header p { font-size: 0.82rem; line-height: 1.7; color: var(--text-muted); }
+
+  /* ─── FORM ─── */
+  .gd-form { padding: 0 2.5rem 2.5rem; }
+  .gd-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .gd-field { margin-bottom: 1.25rem; }
+  .gd-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-1); opacity: 0.75; margin-bottom: 0.45rem; flex-wrap: wrap; }
+  .gd-req { opacity: 0.5; }
+  .gd-label-note { font-size: 0.55rem; text-transform: none; letter-spacing: 0.05em; color: var(--text-muted); opacity: 0.6; font-style: italic; }
+  .gd-input { width: 100%; background: rgba(255,255,255,0.025); border: 1px solid rgba(191,149,63,0.14); color: var(--text-beige); font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 300; padding: 0.8rem 1rem; transition: all 0.3s; outline: none; border-radius: 1px; -webkit-appearance: none; }
+  .gd-input::placeholder { color: rgba(160,152,128,0.35); font-size: 0.82rem; }
+  .gd-input:focus { border-color: rgba(191,149,63,0.45); background: rgba(191,149,63,0.025); box-shadow: 0 0 0 3px rgba(191,149,63,0.06); }
+  .gd-textarea { resize: vertical; min-height: 90px; }
+  .gd-honeypot { position: absolute; left: -9999px; height: 0; overflow: hidden; opacity: 0; pointer-events: none; }
+
+  /* ─── CALENDAR ─── */
+  .gd-calendar { background: rgba(255,255,255,0.02); border: 1px solid rgba(191,149,63,0.14); overflow: hidden; }
+  .gd-cal-header { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.1rem; border-bottom: 1px solid rgba(191,149,63,0.1); background: rgba(191,149,63,0.04); }
+  .gd-cal-title { font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-beige); }
+  .gd-cal-nav { background: none; border: 1px solid rgba(191,149,63,0.2); color: var(--gold-1); width: 2rem; height: 2rem; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.25s; border-radius: 1px; line-height: 1; padding-bottom: 1px; }
+  .gd-cal-nav:hover { background: rgba(191,149,63,0.1); border-color: var(--gold-1); }
+  .gd-cal-nav:disabled { opacity: 0.25; cursor: default; }
+  .gd-cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); padding: 0.7rem 0.75rem 0.4rem; gap: 2px; }
+  .gd-cal-weekdays span { text-align: center; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); opacity: 0.55; }
+  .gd-cal-days { display: grid; grid-template-columns: repeat(7, 1fr); padding: 0 0.75rem 0.75rem; gap: 3px; }
+  .gd-day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: var(--text-muted); cursor: pointer; border-radius: 2px; border: 1px solid transparent; transition: all 0.2s; -webkit-tap-highlight-color: transparent; min-height: 36px; }
+  .gd-day:hover:not(.gd-day--empty):not(.gd-day--past):not(.gd-day--weekend) { border-color: rgba(191,149,63,0.3); color: var(--text-beige); background: rgba(191,149,63,0.06); }
+  .gd-day--today { color: var(--gold-1); font-weight: 500; }
+  .gd-day--selected { background: linear-gradient(135deg, #BF953F, #AA771C) !important; color: var(--bg-deep) !important; font-weight: 600; border-color: transparent !important; }
+  .gd-day--past, .gd-day--weekend { opacity: 0.22; cursor: default; pointer-events: none; }
+  .gd-day--empty { pointer-events: none; }
+
+  /* ─── TIME SLOTS ─── */
+  .gd-timeslots { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .gd-slot { padding: 0.5rem 0.9rem; border: 1px solid rgba(191,149,63,0.2); color: var(--text-muted); font-size: 0.75rem; letter-spacing: 0.08em; cursor: pointer; transition: all 0.2s; border-radius: 1px; -webkit-tap-highlight-color: transparent; min-height: 40px; display: flex; align-items: center; }
+  .gd-slot:hover { border-color: var(--gold-1); color: var(--gold-1); }
+  .gd-slot--selected { background: var(--gradient-gold); border-color: transparent; color: var(--bg-deep); font-weight: 500; }
+
+  /* ─── SELECTED DISPLAY ─── */
+  .gd-selected-display { display: flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; color: var(--gold-1); background: rgba(191,149,63,0.06); border: 1px solid rgba(191,149,63,0.2); padding: 0.65rem 1rem; margin-bottom: 1.25rem; }
+  .gd-selected-display svg { opacity: 0.7; flex-shrink: 0; }
+
+  /* ─── SUBMIT ─── */
+  .gd-submit { width: 100%; min-height: 52px; display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.95rem 1.5rem; background: var(--gradient-gold); border: none; color: var(--bg-deep); font-family: 'Outfit', sans-serif; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; border-radius: 1px; margin-top: 0.5rem; touch-action: manipulation; }
+  .gd-submit:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(191,149,63,0.25); }
+  .gd-submit svg { transition: transform 0.3s; }
+  .gd-submit:hover svg { transform: translateX(4px); }
+  .gd-submit:disabled { opacity: 0.55; cursor: default; transform: none; filter: none; }
+  .gd-privacy { font-size: 0.58rem; color: rgba(160,152,128,0.4); text-align: center; margin-top: 0.9rem; letter-spacing: 0.05em; line-height: 1.6; }
+
+  /* ─── SUCCESS ─── */
+  .page-card.success-shown .page-card-header,
+  .page-card.success-shown .gd-form { display: none !important; }
+  .gd-success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 4rem 2.5rem 3.5rem; gap: 1.4rem; }
+  .gd-success.is-visible { display: flex; }
+  .gd-success-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, rgba(191,149,63,.12), rgba(191,149,63,.04)); border: 1px solid rgba(191,149,63,.35); display: flex; align-items: center; justify-content: center; animation: gdRise .55s cubic-bezier(.16,1,.3,1) both; }
+  .gd-success-icon svg { color: var(--gold-1); }
+  .gd-success-rule { width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-1), transparent); opacity: .45; }
+  .gd-success-title { font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600; line-height: 1.25; color: var(--text-beige); }
+  .gd-success-title em { font-style: italic; background: linear-gradient(135deg,#c9a227,#e8c96d,#bf953f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .gd-success-body { font-size: .9rem; line-height: 1.85; color: var(--text-muted); max-width: 320px; }
+  .gd-success-btn { margin-top: .35rem; padding: .85rem 2.5rem; background: transparent; border: 1px solid rgba(191,149,63,.4); color: var(--gold-1); font-family: 'Outfit', sans-serif; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: background .3s, border-color .3s; min-height: 44px; -webkit-tap-highlight-color: transparent; touch-action: manipulation; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+  .gd-success-btn:hover { background: rgba(191,149,63,.1); border-color: var(--gold-1); }
+
+  /* ─── TOAST ─── */
+  .gd-toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(4rem); background: linear-gradient(135deg, #14141e, #1a1a28); border: 1px solid rgba(191,149,63,0.35); color: var(--text-beige); padding: 1rem 1.75rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.82rem; z-index: 9999; opacity: 0; transition: all 0.45s cubic-bezier(0.16,1,0.3,1); white-space: nowrap; }
+  .gd-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .gd-toast svg { color: var(--gold-1); flex-shrink: 0; }
+
+  /* ─── TOUCH ─── */
+  *, *::before, *::after { -webkit-tap-highlight-color: transparent; }
+  button, a { touch-action: manipulation; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    nav { padding: 1.25rem 3rem; }
+    footer { padding: 2.5rem 3rem; }
+  }
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+    .nav-overlay { display: block; }
+    nav { padding: 1.1rem 1.25rem; }
+    nav.scrolled { padding: 0.85rem 1.25rem; }
+    .nav-menu { display: flex; position: fixed; top: 0; right: 0; width: min(320px, 85vw); height: 100vh; background: #0d0d15; border-left: 1px solid rgba(191,149,63,0.15); flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; padding: 5rem 2.5rem 3rem; z-index: 99; transform: translateX(100%); transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); list-style: none; }
+    .nav-menu.open { transform: translateX(0); }
+    .nav-menu li { width: 100%; border-bottom: 1px solid rgba(191,149,63,0.07); }
+    .nav-menu a { display: block; padding: 1.1rem 0; font-size: 0.85rem; letter-spacing: 0.2em; }
+    .nav-menu .nav-cta { display: inline-flex; margin-top: 2rem; padding: 0.75rem 1.5rem; border: 1px solid var(--gold-1); }
+    footer { flex-direction: column; gap: 1.25rem; text-align: center; padding: 2rem 1.25rem; }
+    .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+    .page-main { padding: 7rem 1rem 3rem; }
+    .page-back { max-width: 100%; }
+    .page-card-header { padding: 2rem 1.25rem 1.25rem; }
+    .gd-form { padding: 0 1.25rem 2rem; }
+    .gd-form-row { grid-template-columns: 1fr; gap: 0; }
+    .gd-day { min-height: 40px; font-size: 0.82rem; }
+    .gd-cal-days { gap: 4px; padding: 0 0.5rem 0.75rem; }
+    .gd-slot { min-height: 44px; padding: 0.65rem 1rem; }
+    .gd-toast { width: calc(100% - 2rem); white-space: normal; }
+  }
+  @media (max-width: 390px) {
+    nav { padding: 1rem; }
+    .page-main { padding: 6.5rem 0.75rem 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html#expertise" onclick="closeMenu()">Meine Expertise</a></li>
+    <li><a href="coaching-ansatz.html" onclick="closeMenu()">Exklusive Formate</a></li>
+    <li><a href="werdegang.html" onclick="closeMenu()">Werdegang</a></li>
+    <li><a href="kontakt.html" class="nav-cta" onclick="closeMenu()">Kontakt</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+
+<main class="page-main">
+  <a href="javascript:history.back()" class="page-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Zurück
+  </a>
+
+  <div class="page-card" id="page-card">
+
+    <div class="page-card-header">
+      <div class="gd-modal-eyebrow">
+        <span class="gd-eyebrow-dot">◆</span>
+        Diskretes Erstgespräch
+      </div>
+      <h1>Zeit für Exzellenz.<br><em>Wählen Sie Ihren Termin.</em></h1>
+      <p>Ein diskretes Erstgespräch mit Gloria Dauksch. Vertraulich, auf Augenhöhe, ohne Verpflichtung.</p>
+    </div>
+
+    <form id="booking-form-main" class="gd-form" onsubmit="submitBooking(event)" name="erstgespraech" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="erstgespraech">
+      <p class="gd-honeypot" aria-hidden="true"><label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+      <div class="gd-form-row">
+        <div class="gd-field">
+          <label class="gd-label" for="b-name">Name <span class="gd-req">*</span></label>
+          <input class="gd-input" type="text" id="b-name" name="name" placeholder="Ihr vollständiger Name" required autocomplete="name">
+        </div>
+        <div class="gd-field">
+          <label class="gd-label" for="b-email">E-Mail <span class="gd-req">*</span></label>
+          <input class="gd-input" type="email" id="b-email" name="email" placeholder="Geschäftliche E-Mail" required autocomplete="email">
+        </div>
+      </div>
+      <div class="gd-field">
+        <label class="gd-label" for="b-phone">Telefon <span class="gd-req">*</span> <span class="gd-label-note">Für den direkten Draht auf C-Level</span></label>
+        <input class="gd-input" type="tel" id="b-phone" name="telefon" placeholder="+49 · · ·" required autocomplete="tel">
+      </div>
+
+      <div class="gd-field">
+        <label class="gd-label">Wunschtermin <span class="gd-req">*</span></label>
+        <div class="gd-calendar" id="calendar">
+          <div class="gd-cal-header">
+            <button type="button" class="gd-cal-nav" id="cal-prev" onclick="calNav(-1)" aria-label="Vorheriger Monat">‹</button>
+            <div class="gd-cal-title" id="cal-title"></div>
+            <button type="button" class="gd-cal-nav" id="cal-next" onclick="calNav(1)" aria-label="Nächster Monat">›</button>
+          </div>
+          <div class="gd-cal-weekdays">
+            <span>Mo</span><span>Di</span><span>Mi</span><span>Do</span><span>Fr</span><span>Sa</span><span>So</span>
+          </div>
+          <div class="gd-cal-days" id="cal-days"></div>
+        </div>
+      </div>
+
+      <div class="gd-field gd-timeslots-wrap" id="timeslots-wrap" style="display:none;">
+        <label class="gd-label">Uhrzeit <span class="gd-req">*</span></label>
+        <div class="gd-timeslots" id="timeslots"></div>
+      </div>
+
+      <div class="gd-selected-display" id="selected-display" style="display:none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        <span id="selected-display-text"></span>
+      </div>
+
+      <div class="gd-field">
+        <label class="gd-label" for="b-topic">Thema des Gesprächs</label>
+        <textarea class="gd-input gd-textarea" id="b-topic" name="thema" rows="3" placeholder="Ihre aktuelle Herausforderung oder der Fokus des Gesprächs …"></textarea>
+      </div>
+
+      <input type="hidden" id="b-date" name="datum" value="">
+      <input type="hidden" id="b-time" name="uhrzeit" value="">
+
+      <button type="submit" class="gd-submit" id="booking-submit">
+        <span>Termin verbindlich anfragen</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="gd-privacy">Ihre Daten werden streng vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+    </form>
+
+    <div class="gd-success" id="booking-success" role="status" aria-live="polite">
+      <div class="gd-success-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <div class="gd-success-rule"></div>
+      <h3 class="gd-success-title">Vielen Dank für<br><em>Ihr Vertrauen.</em></h3>
+      <p class="gd-success-body">Ich habe Ihre Anfrage erhalten und melde mich in Kürze persönlich bei Ihnen.</p>
+      <div class="gd-success-rule"></div>
+      <a href="index.html" class="gd-success-btn">← Zurück zur Startseite</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-logo"><a href="index.html" style="text-decoration:none;background:inherit;-webkit-text-fill-color:inherit;">Gloria Dauksch</a></div>
+  <ul class="footer-links">
+    <li><a href="impressum.html">Impressum</a></li>
+    <li><a href="datenschutz.html">Datenschutz</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Gloria Dauksch. Alle Rechte vorbehalten.</div>
+</footer>
+
+<div class="gd-toast" id="gd-toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg>
+  <span id="gd-toast-text"></span>
+</div>
+
+<script>
+  /* NAV */
+  function toggleMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    var open = menu.classList.contains('open');
+    menu.classList.toggle('open', !open);
+    btn.classList.toggle('open',  !open);
+    ov.classList.toggle('active', !open);
+    document.body.style.overflow = open ? '' : 'hidden';
+    btn.setAttribute('aria-label', open ? 'Menü öffnen' : 'Menü schließen');
+  }
+  function closeMenu() {
+    var menu = document.getElementById('nav-menu');
+    var btn  = document.getElementById('hamburger');
+    var ov   = document.getElementById('nav-overlay');
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    ov.classList.remove('active');
+    document.body.style.overflow = '';
+    if (btn) btn.setAttribute('aria-label', 'Menü öffnen');
+  }
+  window.addEventListener('resize', function() { if (window.innerWidth > 768) closeMenu(); });
+  var navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() { navbar.classList.toggle('scrolled', window.scrollY > 60); });
+
+  /* TOAST */
+  function showToast(msg, isError) {
+    var toast = document.getElementById('gd-toast');
+    document.getElementById('gd-toast-text').textContent = msg;
+    toast.style.borderColor = isError ? 'rgba(200,80,80,0.4)' : 'rgba(191,149,63,0.35)';
+    toast.classList.add('show');
+    setTimeout(function() { toast.classList.remove('show'); }, 4000);
+  }
+
+  /* NETLIFY */
+  function netlifyEncode(data) {
+    return Object.keys(data).map(function(k) { return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]); }).join('&');
+  }
+  function gdNetlifySubmit(formEl, btnEl, btnLabel, onSuccess) {
+    var data = {};
+    new FormData(formEl).forEach(function(v, k) { data[k] = v; });
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: netlifyEncode(data)
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (typeof onSuccess === 'function') onSuccess();
+    })
+    .catch(function() {
+      btnEl.disabled = false;
+      btnEl.querySelector('span').textContent = btnLabel;
+      showToast('Technischer Fehler — bitte schreiben Sie direkt an gloria.dauksch@gmail.com', true);
+    });
+  }
+
+  /* CALENDAR */
+  var calYear, calMonth, selectedDate = null, selectedTime = null;
+  var MONTHS_DE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  var TIME_SLOTS = ['09:00','10:00','11:00','14:00','15:00','16:00','17:00'];
+
+  function initCalendar() {
+    var now = new Date();
+    calYear  = now.getFullYear();
+    calMonth = now.getMonth();
+    renderCalendar();
+  }
+
+  function renderCalendar() {
+    document.getElementById('cal-title').textContent = MONTHS_DE[calMonth] + ' ' + calYear;
+    var days  = document.getElementById('cal-days');
+    days.innerHTML = '';
+    var now   = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    document.getElementById('cal-prev').disabled = (calYear === today.getFullYear() && calMonth === today.getMonth());
+    var first    = new Date(calYear, calMonth, 1);
+    var startDay = first.getDay() - 1;
+    if (startDay < 0) startDay = 6;
+    var daysInMonth = new Date(calYear, calMonth + 1, 0).getDate();
+    for (var i = 0; i < startDay; i++) {
+      var empty = document.createElement('div');
+      empty.className = 'gd-day gd-day--empty';
+      days.appendChild(empty);
+    }
+    for (var d = 1; d <= daysInMonth; d++) {
+      (function(day) {
+        var cell      = document.createElement('div');
+        cell.className = 'gd-day';
+        cell.textContent = day;
+        var thisDate  = new Date(calYear, calMonth, day);
+        var dow       = thisDate.getDay();
+        var isPast    = thisDate < today;
+        var isWeekend = dow === 0 || dow === 6;
+        var isToday   = thisDate.getTime() === today.getTime();
+        var isSelected = selectedDate && thisDate.getTime() === selectedDate.getTime();
+        if (isPast) {
+          cell.classList.add('gd-day--past');
+        } else if (isWeekend) {
+          cell.classList.add('gd-day--weekend');
+        } else {
+          cell.setAttribute('tabindex', '0');
+          cell.setAttribute('role', 'button');
+          cell.setAttribute('aria-label', day + '. ' + MONTHS_DE[calMonth] + ' ' + calYear);
+          cell.addEventListener('click', function() { selectDate(thisDate, day); });
+          cell.addEventListener('touchstart', function(e) { e.preventDefault(); selectDate(thisDate, day); }, {passive:false});
+        }
+        if (isToday)    cell.classList.add('gd-day--today');
+        if (isSelected) cell.classList.add('gd-day--selected');
+        days.appendChild(cell);
+      })(d);
+    }
+  }
+
+  function calNav(dir) {
+    calMonth += dir;
+    if (calMonth > 11) { calMonth = 0; calYear++; }
+    if (calMonth < 0)  { calMonth = 11; calYear--; }
+    renderCalendar();
+  }
+
+  function selectDate(date, d) {
+    selectedDate = date;
+    selectedTime = null;
+    document.getElementById('b-date').value = d + '. ' + MONTHS_DE[date.getMonth()] + ' ' + date.getFullYear();
+    document.getElementById('b-time').value = '';
+    renderCalendar();
+    renderTimeSlots();
+    updateSelectedDisplay();
+  }
+
+  function renderTimeSlots() {
+    var wrap = document.getElementById('timeslots-wrap');
+    var container = document.getElementById('timeslots');
+    wrap.style.display = 'block';
+    container.innerHTML = '';
+    TIME_SLOTS.forEach(function(t) {
+      var slot = document.createElement('button');
+      slot.type = 'button';
+      slot.className = 'gd-slot';
+      slot.textContent = t + ' Uhr';
+      if (selectedTime === t) slot.classList.add('gd-slot--selected');
+      slot.addEventListener('click', function() { selectTime(t); });
+      slot.addEventListener('touchstart', function(e) { e.preventDefault(); selectTime(t); }, {passive:false});
+      container.appendChild(slot);
+    });
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function selectTime(t) {
+    selectedTime = t;
+    document.getElementById('b-time').value = t + ' Uhr';
+    renderTimeSlots();
+    updateSelectedDisplay();
+  }
+
+  function updateSelectedDisplay() {
+    var disp = document.getElementById('selected-display');
+    var txt  = document.getElementById('selected-display-text');
+    if (selectedDate && selectedTime) {
+      txt.textContent = selectedDate.getDate() + '. ' + MONTHS_DE[selectedDate.getMonth()] + ' ' + selectedDate.getFullYear() + ' · ' + selectedTime + ' Uhr';
+      disp.style.display = 'flex';
+    } else if (selectedDate) {
+      txt.textContent = selectedDate.getDate() + '. ' + MONTHS_DE[selectedDate.getMonth()] + ' ' + selectedDate.getFullYear() + ' — bitte Uhrzeit wählen';
+      disp.style.display = 'flex';
+    } else {
+      disp.style.display = 'none';
+    }
+  }
+
+  function submitBooking(e) {
+    e.preventDefault();
+    if (!selectedDate || !selectedTime) {
+      showToast('Bitte wählen Sie ein Datum und eine Uhrzeit.', true);
+      return;
+    }
+    document.getElementById('b-date').value = selectedDate.toLocaleDateString('de-DE', {weekday:'long', day:'2-digit', month:'long', year:'numeric'});
+    document.getElementById('b-time').value = selectedTime;
+    var form  = e.target;
+    var btn   = form.querySelector('.gd-submit');
+    var label = btn.querySelector('span').textContent;
+    btn.disabled = true;
+    btn.querySelector('span').textContent = 'Wird gesendet …';
+    gdNetlifySubmit(form, btn, label, function() {
+      document.getElementById('page-card').classList.add('success-shown');
+      document.getElementById('booking-success').classList.add('is-visible');
+    });
+  }
+
+  /* Init */
+  initCalendar();
+</script>
+</body>
+</html>
