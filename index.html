@@ -2936,11 +2936,11 @@
     <li><a href="werdegang.html" onclick="closeMenu()">Werdegang</a></li>
     <li><a href="#" class="nav-cta" onclick="event.preventDefault(); closeMenu(); openContactModal()" ontouchstart="event.preventDefault(); closeMenu(); openContactModal()">Kontakt</a></li>
   </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()">
+  <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen" onclick="toggleMenu()" ontouchstart="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+<div class="nav-overlay" id="nav-overlay" onclick="closeMenu()" ontouchstart="closeMenu()"></div>
 
 <!-- HERO -->
 <section id="hero">
@@ -3134,9 +3134,9 @@
 <footer>
   <div class="footer-logo">Gloria Dauksch</div>
   <ul class="footer-links">
-    <li><a href="#" onclick="event.preventDefault(); openLegal('impressum')">Impressum</a></li>
-    <li><a href="#" onclick="event.preventDefault(); openLegal('datenschutz')">Datenschutz</a></li>
-    <li><a href="#" onclick="event.preventDefault(); openContactModal()">Kontakt</a></li>
+    <li><a href="#" onclick="event.preventDefault(); openLegal('impressum')" ontouchstart="event.preventDefault(); openLegal('impressum')">Impressum</a></li>
+    <li><a href="#" onclick="event.preventDefault(); openLegal('datenschutz')" ontouchstart="event.preventDefault(); openLegal('datenschutz')">Datenschutz</a></li>
+    <li><a href="#" onclick="event.preventDefault(); openContactModal()" ontouchstart="event.preventDefault(); openContactModal()">Kontakt</a></li>
   </ul>
   <div class="footer-copy">© 2025 Gloria Dauksch. Alle Rechte vorbehalten.</div>
 </footer>
@@ -3487,7 +3487,7 @@
 ════════════════════════════════════════════════ -->
 <div class="gd-overlay" id="booking-overlay">
   <div class="gd-modal gd-modal--booking" id="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
-    <button class="gd-close" onclick="closeBookingModal()" aria-label="Schließen">
+    <button class="gd-close" onclick="closeBookingModal()" ontouchstart="closeBookingModal()" aria-label="Schließen">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.2"/>
       </svg>
@@ -3528,9 +3528,9 @@
         <div class="gd-calendar" id="calendar">
           <!-- Calendar header -->
           <div class="gd-cal-header">
-            <button type="button" class="gd-cal-nav" id="cal-prev" onclick="calNav(-1)" aria-label="Vorheriger Monat">‹</button>
+            <button type="button" class="gd-cal-nav" id="cal-prev" onclick="calNav(-1)" ontouchstart="calNav(-1)" aria-label="Vorheriger Monat">‹</button>
             <div class="gd-cal-title" id="cal-title"></div>
-            <button type="button" class="gd-cal-nav" id="cal-next" onclick="calNav(1)" aria-label="Nächster Monat">›</button>
+            <button type="button" class="gd-cal-nav" id="cal-next" onclick="calNav(1)" ontouchstart="calNav(1)" aria-label="Nächster Monat">›</button>
           </div>
           <!-- Day labels -->
           <div class="gd-cal-weekdays">
@@ -3577,7 +3577,7 @@
       <h3 class="gd-success-title">Vielen Dank für<br><em>Ihr Vertrauen.</em></h3>
       <p class="gd-success-body">Ich habe Ihre Anfrage erhalten und melde mich in Kürze persönlich bei Ihnen.</p>
       <div class="gd-success-rule"></div>
-      <button type="button" class="gd-success-btn" onclick="closeBookingModal()">Fenster schließen</button>
+      <button type="button" class="gd-success-btn" onclick="closeBookingModal()" ontouchstart="closeBookingModal()">Fenster schließen</button>
     </div>
   </div>
 </div>
@@ -3587,7 +3587,7 @@
 ════════════════════════════════════════════════ -->
 <div class="gd-overlay" id="contact-overlay">
   <div class="gd-modal gd-modal--contact" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-    <button class="gd-close" onclick="closeContactModal()" aria-label="Schließen">
+    <button class="gd-close" onclick="closeContactModal()" ontouchstart="closeContactModal()" aria-label="Schließen">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.2"/>
       </svg>
@@ -3639,7 +3639,7 @@
       <h3 class="gd-success-title">Vielen Dank für<br><em>Ihr Vertrauen.</em></h3>
       <p class="gd-success-body">Ich habe Ihre Anfrage erhalten und melde mich in Kürze persönlich bei Ihnen.</p>
       <div class="gd-success-rule"></div>
-      <button type="button" class="gd-success-btn" onclick="closeContactModal()">Fenster schließen</button>
+      <button type="button" class="gd-success-btn" onclick="closeContactModal()" ontouchstart="closeContactModal()">Fenster schließen</button>
     </div>
   </div>
 </div>
@@ -3658,7 +3658,7 @@
 ════════════════════════════════════════════════ -->
 <div class="gd-legal-overlay" id="impressum-overlay" role="dialog" aria-modal="true" aria-labelledby="impressum-title">
   <div class="gd-legal-modal">
-    <button class="gd-legal-close" onclick="closeLegal('impressum')" aria-label="Schließen">
+    <button class="gd-legal-close" onclick="closeLegal('impressum')" ontouchstart="closeLegal('impressum')" aria-label="Schließen">
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.3"/></svg>
     </button>
     <div class="gd-legal-eyebrow">Rechtliche Angaben</div>
@@ -3695,7 +3695,7 @@
 ════════════════════════════════════════════════ -->
 <div class="gd-legal-overlay" id="datenschutz-overlay" role="dialog" aria-modal="true" aria-labelledby="datenschutz-title">
   <div class="gd-legal-modal">
-    <button class="gd-legal-close" onclick="closeLegal('datenschutz')" aria-label="Schließen">
+    <button class="gd-legal-close" onclick="closeLegal('datenschutz')" ontouchstart="closeLegal('datenschutz')" aria-label="Schließen">
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.3"/></svg>
     </button>
     <div class="gd-legal-eyebrow">Datenschutz &amp; Vertraulichkeit</div>
